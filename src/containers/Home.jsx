@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
 import Search from "../components/Search";
-import Footer from "../components/Footer";
 import Categories from "../components/Categories";
 import Carousel from "../components/Carousel";
 import CarouselItem from "../components/CarouseItem";
@@ -26,7 +24,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+      
       <Search />
       {videos.myList && videos.myList.length > 0 && (
         <Categories title="Mi Lista">
@@ -43,7 +41,6 @@ const Home = () => {
           <Carousel>{renderList(videos.originals)}</Carousel>
         </Categories>
       )}
-      <Footer />
     </div>
   );
 };
