@@ -1,48 +1,48 @@
-import React from "react";
-import Search from "../components/Search";
-import Categories from "../components/Categories";
-import Carousel from "../components/Carousel";
-import CarouselItem from "../components/CarouseItem";
-import useInitialState from "../hooks/useInitialState";
+import React from 'react';
+import { connect } from 'react-redux';
+import Search from '../components/Search';
+import Categories from '../components/Categories';
+import Carousel from '../components/Carousel';
+import CarouselItem from '../components/CarouselItem';
+import '../assets/styles/App.scss';
 
-import "../assets/styles/app.scss";
-
-const API = "http://localhost:3030/initialState";
-
-const Home = () => {
-  const videos = useInitialState(API);
-
-  const renderList = (list = []) => {
-    return (
-      <>
-        {list.map((item) => (
-          <CarouselItem key={item.id} {...item} />
-        ))}
-      </>
-    );
-  };
-
+const Home = ({ myList, trends, originals }) => {
   return (
-    <div>
-      
+    <>
       <Search />
-      {videos.myList && videos.myList.length > 0 && (
+      {myList.length > 0 &&
         <Categories title="Mi Lista">
-          <Carousel>{renderList(videos.myList)}</Carousel>
+          <Carousel>
+            {myList.map(item =>
+              <CarouselItem key={item.id} {...item} />       
+                )}
+          </Carousel>
         </Categories>
-      )}
-      {videos.trends && videos.trends.length > 0 && (
-        <Categories title="Tendencias">
-          <Carousel>{renderList(videos.trends)}</Carousel>
-        </Categories>
-      )}
-      {videos.originals && videos.originals.length > 0 && (
-        <Categories title="Originales ">
-          <Carousel>{renderList(videos.originals)}</Carousel>
-        </Categories>
-      )}
-    </div>
+      }
+      <Categories title="Tendencias">
+        <Carousel>
+          {trends.map(item =>
+            <CarouselItem key={item.id} {...item} />
+          )}
+        </Carousel>
+      </Categories>
+      <Categories title="Originales de Platzi Video">
+        <Carousel>
+          {originals.map(item =>
+            <CarouselItem key={item.id} {...item} />
+          )}
+        </Carousel>
+      </Categories>
+    </>
   );
+}
+
+const mapStateToProps = state => {
+  return {
+    myList: state.myList,
+    trends: state.trends,
+    originals: state.originals,
+  };
 };
 
-export default Home;
+export default connect(mapStateToProps, null)(Home);
