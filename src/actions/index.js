@@ -9,7 +9,7 @@ export const setFavorite = payload => ({
  })
 
  export const loginRequest = payload => ({
-    type: 'LOGIN_REQUEST',
+    type: 'LOGIN_REQ',
     payload,
  })
 
