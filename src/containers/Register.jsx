@@ -17,8 +17,8 @@ const Register = () => {
      })
   }
   const handleSubmit = event => {
-    event.preventDefault()
-    console.log(form)
+    event.preventDefault();
+    console.log(form);
   }
 
   return (
@@ -57,9 +57,6 @@ const Register = () => {
   </section>
 )
   }
-
-
-
 export default Register
 
 
