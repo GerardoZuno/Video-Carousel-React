@@ -17,4 +17,8 @@ export const setFavorite = payload => ({
     type: 'LOGOUT_REQUEST',
     payload,
  })
-
+ 
+ export const registerRequest = payload => ({
+    type: 'REGISTER_REQUEST',
+    payload,
+ })
