@@ -60,13 +60,16 @@
   
   .login__container--register {
     font-size: 14px;
+    
   }
+
   
   .login__container--register a {
     color: white;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
+    margin-left: 10px;
   }
   
   .login__container--register a:hover {
