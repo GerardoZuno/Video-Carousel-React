@@ -27,3 +27,12 @@ export const setFavorite = payload => ({
      type: 'GET_VIDEO_SOURCE',
      payload,
  })
+ export const getVideos = payload => ({
+  type: "GET_VIDEOS",
+  payload,
+});
+
+export const isSearching = payload => ({
+  type: "IS_SEARCHING",
+  payload,
+});
